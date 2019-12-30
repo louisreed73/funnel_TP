@@ -2,13 +2,15 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const MiniCssExtractPlugin=require("mini-css-extract-plugin");
+const CopyPlugin = require('copy-webpack-plugin');
 
 
 module.exports = {
     entry: {
         bundle: './src/assets/js/index.js'
-/*         pagina1: './src/assets/js/pagina1.js',
-        pagina2: './src/assets/js/pagina2.js' */
+    //    home: './src/assets/js/home.js',
+
+
     },
     output: {
         filename: "assets/js/[name].js",
@@ -16,18 +18,20 @@ module.exports = {
     },
     module: {
         rules: [
-            {
+            /* {
                 test: /\.(woff|woff2)$/,
                 loader: "url-loader?limit=100000"
-            }, {
+            }, */
+             /* {
                 test: /\.(svg|gif|png|jpe?g)$/,
                 loader: 'file-loader',
                 options: {
                     name: '[path][name].[ext]',
                     context: 'src',
-                    publicPath: "../"
+                    publicPath: "/"
                 }
-            }, {
+            },  */
+            {
                 test: /\.s?css$/,
                 use: [
                     {
@@ -38,7 +42,23 @@ module.exports = {
                     }, {
                         loader: 'css-loader',
                         options: {
-                            sourceMap: true
+                            sourceMap: true,
+                            url: (url, resourcePath) => {
+                                // resourcePath - path to css file
+
+                                // Don't handle `img.png` urls
+                                if (url.includes('.svg')
+                                 || url.includes('.png')
+                                 || url.includes('.jpg')
+                                 || url.includes('.woff')
+                                 || url.includes('.woff2')
+                                 ) {
+                                    return false;
+                                }
+
+                                return true;
+                            }
+
                         }
                     }, {
                         loader: 'postcss-loader',
@@ -87,17 +107,26 @@ module.exports = {
             chunks: ["bundle"]
         }),
 
-/*         new HtmlWebpackPlugin({
-            filename: "pagina1/pagina1.html", template: "./src/pagina1/pagina1.html",
+/*        new HtmlWebpackPlugin({
+            filename: "home.html", template: "./src/home.html",
             // inject:true,
-            chunks: ["pagina1"]
-        }),
-        new HtmlWebpackPlugin({
-            filename: "pagina2/pagina2.html", template: "./src/pagina2/pagina2.html",
-            // inject:true,
-            chunks: ["pagina2"]
-        }),
-     */
+            chunks: ["home"]
+        }), */
+       
+        new CopyPlugin([
+            { 
+                context:'TELEPIZZA_TUNNEL_00',
+                from: '../src/assets/imgs/',
+                 to: 'assets/imgs/' 
+                },
+                { 
+                    context:'TELEPIZZA_TUNNEL_00',
+                    from: '../src/assets/fonts/',
+                     to: 'assets/fonts/' 
+                    }
+          ]),
+
+
 
         new MiniCssExtractPlugin({filename: "assets/css/[name].css"})
 

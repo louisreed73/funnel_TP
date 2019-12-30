@@ -4,10 +4,28 @@
 body {
     font-size:1.5rem;
     line-height: 1.4;
+    font-family: $fuente_light;
+
 }
 
-.row {
-    min-height:800px;
+.imgReal {
+    display:block;
+    margin: 0 auto 2rem;
+    width:60rem;
 }
+
+
+
+.imgBackground {
+    display:block;
+    margin: 0 auto 2rem;
+    width:30rem;
+    height:30rem;
+    background: url(../imgs/c_Deal_img2.jpg) no-repeat center / contain;
+
+
+}
+
+
 
 

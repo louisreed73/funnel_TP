@@ -1,25 +1,13 @@
-@import 'base/_reset';
 @import 'vendors/_bootstrapGrid';
-@import 'vendors/_navbar';
-@import 'themes/_dark';
-@import 'abstracts/variables';
+// @import 'vendors/_navbar';
+// @import 'themes/_dark';
 @import 'base/_tipography';
-@import 'pages/_index';
+@import 'abstracts/_variables';
+@import 'base/_reset';
 @import 'layout/utilities';
-// @import 'components/component_headerMainNav';
-@import 'pages/_component_navMobile';
-@import 'pages/_component_mainContent';
-@import 'pages/_component_carritoLG';
-@import 'pages/_component_footer';
-@import 'components/_componentPrueba';
-@import 'components/_componentDeal';
-@import 'components/_componentPopDeal';
-@import 'components/_componentDealSep';
-@import 'components/_componentPizza';
-@import 'components/_componentFoodCust';
-@import 'components/subComponents/_componentSelectInfo';
-@import 'components/subComponents/_componentBtn';
-@import 'components/subComponents/_componentSelect';
+@import 'pages/_index';
+
+
 
 
 
@@ -30,19 +18,7 @@
   
 
 
-.row {
-    min-height:initial;
-}
 
-
-body {
-    font-family: $fuente_light;
-}
-
-.pag1 {
-    max-width:$anchoMaxPagIndex;
-    margin: 0 auto;
-}
 
 
 
