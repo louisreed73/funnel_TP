@@ -1,0 +1,220 @@
+.c_funnel {
+    $self:&;
+    box-sizing:border-box;
+    margin-top:2rem;
+    position:relative;
+    font-family:$fuente_medium;
+    //para quitar el padding después;
+    padding:2rem;
+    font-size:1em;
+    > * {
+        margin-bottom:2rem;
+    }
+
+    @media only screen and (min-width:767px) {
+        >:nth-child(n+2):not(.c_funnel__Catalog) {
+            margin: 2rem 5rem;
+        }
+    }
+    
+    &__Head {
+        font-size:1em;
+        margin-top:4.5rem;
+        margin-bottom:10rem;
+        
+        @media only screen and (min-width:400px) {
+            margin-top:0;
+
+        }
+        
+        strong {
+            display:block;
+            margin-top:1rem;
+            // margin-top:2rem;
+        }
+        
+    }
+    &__Icons {
+        position:relative;
+        padding:1rem 0;
+        // outline:1px solid gainsboro;
+
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        flex-flow:row wrap;
+        align-content: space-between;
+        height: 34rem;
+
+        @media only screen and (min-width:429px) {
+            height:23rem;
+        }
+        
+        @media only screen and (min-width: 622px) {
+            height:12rem;
+            
+        }
+        
+    }
+
+    &__progress {
+        position: absolute;
+        top: -90px;
+        width: calc(100vw - 4rem);
+        margin: 0 auto;
+        height: 1rem;
+        background: gainsboro;
+        border-radius:1rem;
+
+        &Value {
+            border-radius:inherit;
+            display:block;
+            height:100%;
+            background:red;
+            width:66.6666%;
+        }
+        &Text{
+            display:block;
+            margin-top:1rem;
+        }
+    }
+
+    &__icLink {
+        $self:&;
+        list-style: none;
+        display:flex;
+        align-items:center;
+        padding: 2rem;
+        border: 1px solid gainsboro;
+        // margin-bottom: 3rem;
+        border-radius: .5rem;
+        // background:red;
+        
+        &Icon {
+            display: block;
+            width:5rem;
+            height:5rem;            
+            border-radius: 50%;
+            border:5px solid white;
+            box-shadow: 0 0 0px 5px black;
+            background: url(../imgs/pizza_Funnel.svg) no-repeat center top / cover;
+            #{$self}.active & {
+                background: url(../imgs/pizza_Funnel--green.svg) no-repeat center top / cover;
+                box-shadow: 0 0 0px 5px rgba(0, 128, 0, 1);
+            }
+            #{$self}._disabled &{
+                opacity:.2
+            }
+        }
+        &Text {
+            position:relative;
+            padding-left:2rem;
+            font-size:1.25em; 
+            padding-right:2rem;
+            #{$self}.active & {
+                color:rgba(0, 128, 0, 1);
+            }
+            #{$self}._disabled &{
+                opacity:.2
+            }           
+            &::after {
+                display:block;
+                content:">";
+                position:absolute;
+                top:50%;
+                right:-12px;
+                transform: translateY(calc(-50% + -3px));
+                font-size: 1.5em;
+            }
+            
+            #{$self}._active &{
+                color:green;
+                // opacity:.2
+            }  
+        }
+
+        &:nth-of-type(n):not(:last-of-type) {
+            margin-right:.4rem;
+        }
+
+        &:last-of-type {
+            margin-bottom: 0;
+
+/*             @media only screen and (min-width:622px) {
+                margin-bottom:3rem;
+            } */
+        }
+
+    }
+    &__Sep{
+        height:3px;
+        background:rgba(220, 220, 220, 0.39);
+        // width:90%;
+        display:block;
+        margin: 2rem auto;
+        border:none;
+
+    }
+    &__BoxSec {
+        display:flex;
+        flex-flow:row wrap;
+        justify-content:center;
+        align-items:center;
+/*         > *:not(:last-child) {
+            margin-bottom:2rem;
+        } */
+
+
+    }
+    &__Info{
+        flex:1 1 auto;
+        padding: 1rem 0 3rem;
+        
+        @media only screen and (min-width:535px) {
+            padding: 1rem 0 0;
+        
+    }
+}
+
+    &__textAdd{
+        
+    }
+    &__textSelec {
+        
+    }
+    &__buttons {
+        flex:0 1 32rem;
+        display:inline-flex;
+        justify-content:center;
+        align-items: center;
+
+    }
+
+    &__Catalog {
+        position:absolute;
+        top:.5rem;
+        right:2.5rem;
+        padding: 1rem 2rem;
+        background:black;
+        border-radius:1.2rem;
+        span {
+            color:white;
+        }
+    }
+
+
+
+}
+
+$final:4;
+
+@for $i from 1 to $final {
+    ._#{$i}_of_#{$final - 1} {
+        width: 33.333 * $i * 1%;
+    }
+}
+
+/* .active {
+    color: green;
+    
+} */

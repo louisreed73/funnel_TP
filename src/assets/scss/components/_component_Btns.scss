@@ -1,0 +1,23 @@
+.btn {
+
+    &_Next, &_Cancel {
+        -webkit-appearance: none;
+        border:none;
+        border-radius: .6rem;
+        padding:1rem 4rem;
+        background:green;
+        color:white;
+
+        
+    }
+    &_Next {
+        
+    }
+    &_Cancel{
+        background:none;
+        border: 2px solid black;
+        color:black;
+        margin-right:2rem;
+        padding:.8rem 3.6rem;
+    }
+}
