@@ -76,6 +76,7 @@
         &Text{
             display:block;
             margin-top:1rem;
+            text-align:center;
         }
     }
 
@@ -176,12 +177,12 @@
     }
 }
 
-    &__textAdd{
+/*     &__textAdd{
         
     }
     &__textSelec {
         
-    }
+    } */
     &__buttons {
         flex:0 1 32rem;
         display:inline-flex;
