@@ -8,7 +8,7 @@ module.exports=merge(common,{
         // port: 3000,
         contentBase:"src",
         // index: 'pagina1/pagina1.html'
-        index: 'funnel.html'
+        index: 'index.html'
     },
     devtool:"inline-source-map",
 

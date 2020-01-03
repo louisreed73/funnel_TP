@@ -6,4 +6,10 @@
 
 import '../scss/main_index.scss';
 
+import {pedido} from './pedido';
+
+console.log("Hola!!!!",pedido.getPedido())
+
+
+
 

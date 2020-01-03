@@ -1,0 +1,55 @@
+.c_oferta {
+    flex: 0 1 32rem;
+    font-size:1.4rem;
+    font-family: $fuente_medium;
+    display:flex;
+    justify-content:center;
+    border: 1px solid gainsboro;
+    cursor:pointer;
+    border-radius:6px;
+    margin:1rem;
+    min-height: 16.7rem;
+    
+    &__Content {
+
+        flex: 1 1 auto;
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        padding: 1rem;
+        justify-content: space-between;
+
+        &Text {
+            font-size:1.2em;
+            padding:1rem;
+        }
+        &Btn {
+            -webkit-appearance: none;
+            font-size:.75em;
+            padding:1rem 2rem;
+            background:red;
+            border:none;
+            text-transform:uppercase;
+            color:white;
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            padding: 1rem 2rem;
+            border-radius:.3rem;
+            margin: 1rem;
+        }
+    }
+
+    &__Img {
+            flex:none;
+            max-width:32%;
+            height:auto;
+            // background:purple;
+            img {
+                display:block;
+                width:100%;
+                height:100%;
+                object-fit: contain;
+            }
+    }
+}

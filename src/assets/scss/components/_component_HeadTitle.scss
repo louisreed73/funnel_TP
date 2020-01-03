@@ -1,0 +1,22 @@
+.c_HeadTitle {
+    height:5rem;
+    width:100%;
+    background:red;
+    color:white;
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    
+    &__text {
+        flex: none;
+        text-transform:uppercase;
+        margin:0;
+        margin-right:3rem;
+                    &:last-child{
+                        margin-right:0rem;
+                    }
+
+    }
+
+}
