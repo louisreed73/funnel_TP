@@ -7,20 +7,18 @@
     //para quitar el padding después;
     padding:2rem;
     font-size:1em;
-    > * {
-        margin-bottom:2rem;
-    }
+
 
     @media only screen and (min-width:767px) {
         >:nth-child(n+2):not(.c_funnel__Catalog) {
-            margin: 2rem 5rem;
+            margin: 2rem 5rem
         }
     }
     
     &__Head {
         font-size:1em;
         margin-top:4.5rem;
-        margin-bottom:10rem;
+        margin-bottom:3rem;
         
         @media only screen and (min-width:400px) {
             margin-top:0;
@@ -30,48 +28,38 @@
         strong {
             display:block;
             margin-top:1rem;
-            // margin-top:2rem;
+
         }
         
     }
     &__Icons {
         position:relative;
-        padding:1rem 0;
-        // outline:1px solid gainsboro;
+        padding:3rem 0 0;
+
 
         display:flex;
         justify-content:space-around;
         align-items:center;
         flex-flow:row wrap;
         align-content: space-between;
-        height: 34rem;
 
-        @media only screen and (min-width:429px) {
-            height:23rem;
-        }
-        
-        @media only screen and (min-width: 622px) {
-            height:12rem;
-            
-        }
         
     }
 
     &__progress {
-        position: absolute;
-        top: -90px;
-        width: calc(100vw - 4rem);
+        position: relative;
         margin: 0 auto;
         height: 1rem;
         background: gainsboro;
         border-radius:1rem;
+        margin-bottom: 4.5rem !important;
 
         &Value {
             border-radius:inherit;
             display:block;
             height:100%;
             background:red;
-            width:66.6666%;
+
         }
         &Text{
             display:block;
@@ -81,15 +69,18 @@
     }
 
     &__icLink {
+        position:relative;
         $self:&;
         list-style: none;
         display:flex;
         align-items:center;
-        padding: 2rem;
+        padding: 1rem 2rem 2rem;
         border: 1px solid gainsboro;
-        // margin-bottom: 3rem;
+        flex-flow:column;
         border-radius: .5rem;
-        // background:red;
+        margin-bottom: 3rem;
+
+
         
         &Icon {
             display: block;
@@ -103,34 +94,48 @@
                 background: url(../imgs/pizza_Funnel--green.svg) no-repeat center top / cover;
                 box-shadow: 0 0 0px 5px rgba(0, 128, 0, 1);
             }
-            #{$self}._disabled &{
+            #{$self}.disabled &{
                 opacity:.2
             }
         }
+
+
+        &::after {
+            display:block;
+            content:">";
+            position:absolute;
+            top:50%;
+            right: 0.5rem;
+            transform: translateY(calc(-50% + -3px));
+            font-size: 2.2em;
+
+        }
+        &.active::after {
+            color:rgba(0, 128, 0, 1);
+        }
+        &.disabled::after {
+            opacity:.2;
+        }
+
+
+
         &Text {
             position:relative;
             padding-left:2rem;
             font-size:1.25em; 
             padding-right:2rem;
+            margin-bottom: 1rem;
             #{$self}.active & {
                 color:rgba(0, 128, 0, 1);
             }
-            #{$self}._disabled &{
+            #{$self}.disabled &{
                 opacity:.2
             }           
-            &::after {
-                display:block;
-                content:">";
-                position:absolute;
-                top:50%;
-                right:-12px;
-                transform: translateY(calc(-50% + -3px));
-                font-size: 1.5em;
-            }
+            
             
             #{$self}._active &{
                 color:green;
-                // opacity:.2
+
             }  
         }
 
@@ -138,22 +143,18 @@
             margin-right:.4rem;
         }
 
-        &:last-of-type {
-            margin-bottom: 0;
 
-/*             @media only screen and (min-width:622px) {
-                margin-bottom:3rem;
-            } */
-        }
 
     }
     &__Sep{
+        $self:&;
         height:3px;
         background:rgba(220, 220, 220, 0.39);
-        // width:90%;
         display:block;
         margin: 2rem auto;
         border:none;
+
+
 
     }
     &__BoxSec {
@@ -161,9 +162,7 @@
         flex-flow:row wrap;
         justify-content:center;
         align-items:center;
-/*         > *:not(:last-child) {
-            margin-bottom:2rem;
-        } */
+
 
 
     }
@@ -171,18 +170,13 @@
         flex:1 1 auto;
         padding: 1rem 0 3rem;
         
-        @media only screen and (min-width:535px) {
+        @media only screen and (min-width:612px) {
             padding: 1rem 0 0;
         
     }
 }
 
-/*     &__textAdd{
-        
-    }
-    &__textSelec {
-        
-    } */
+
     &__buttons {
         flex:0 1 32rem;
         display:inline-flex;
@@ -203,17 +197,61 @@
         }
     }
 
+    &__textSelec {
+        font-size:1.35em;
+        display: inline-flex;
+        justify-content: center;
+        line-height: 2.7rem;
+        &.active {
+            color:rgba(0, 128, 0, 1);
+        }
+
+        &:before {
+            display:block;
+            content:"";
+            width:2rem;
+            height:2rem;
+            margin-right:2rem;
+            background:rgba(0, 128, 0, 1);
+        }
+    }
+
 
 
 }
 
-$final:4;
 
-@for $i from 1 to $final {
-    ._#{$i}_of_#{$final - 1} {
-        width: 33.333 * $i * 1%;
+$final1:3 ;
+$final2:4 ;
+$final3:7 ;
+
+
+@for $i from 1 to $final1 {
+    $average:100/($final1 - 1);
+    .prog_#{$i}_of_#{$final1 - 1} {
+        width: $average * $i * 1%;
     }
 }
+
+
+
+
+    
+    
+    @for $i from 1 to $final2 {
+        $average:100/($final2 - 1);
+        .prog_#{$i}_of_#{$final2 - 1} {
+            width: $average * $i * 1%;
+        }
+    }
+
+    @for $i from 1 to $final3 {
+        $average:100/($final3 - 1);
+        .prog_#{$i}_of_#{$final3 - 1} {
+            width: $average * $i * 1%;
+        }
+    }
+
 
 /* .active {
     color: green;

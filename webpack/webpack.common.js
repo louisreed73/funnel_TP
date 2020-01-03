@@ -7,7 +7,8 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry: {
-        bundle: './src/assets/js/index.js'
+        bundle: './src/assets/js/index.js',
+        funnel: './src/assets/js/funnel.js',
     //    home: './src/assets/js/home.js',
 
 
@@ -105,6 +106,11 @@ module.exports = {
             filename: "index.html", template: "./src/index.html",
             // inject:true,
             chunks: ["bundle"]
+        }),
+        new HtmlWebpackPlugin({
+            filename: "funnel.html", template: "./src/funnel.html",
+            // inject:true,
+            chunks: ["funnel"]
         }),
 
 /*        new HtmlWebpackPlugin({

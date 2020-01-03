@@ -6,9 +6,9 @@ module.exports=merge(common,{
     mode: "development",
     devServer: {
         // port: 3000,
-        // contentBase:"src",
+        contentBase:"src",
         // index: 'pagina1/pagina1.html'
-        index: 'index.html'
+        index: 'funnel.html'
     },
     devtool:"inline-source-map",
 
